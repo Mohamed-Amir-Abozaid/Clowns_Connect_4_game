@@ -47,18 +47,29 @@ def game_mode_menu():
         if game_process and game_process.poll() is not None:
             game_process = None
 
+        # ===== Title Animation =====
         pulse += direction
         if pulse > 20 or pulse < 0:
             direction *= -1
 
+        # ===== CONNECT 4 =====
         title = font_title.render("CONNECT 4", True, (255, 215, 0))
-        screen.blit(title, (width // 2 - title.get_width() // 2, 75))
+        glow = font_title.render("CONNECT 4", True, (255, 215, 0))
+        screen.blit(glow, (width//2 - glow.get_width()//2 - 2, 75 - pulse//4))
+        screen.blit(title, (width//2 - title.get_width()//2, 75))
 
-        subtitle = font_btn.render("Choose Game Mode", True, (180, 180, 180))
-        screen.blit(subtitle, (width // 2 - subtitle.get_width() // 2, 200))
+        # ===== CLOWNS 🤡 (same effect) =====
+        clown_title = font_title.render("Clowns", True, (255, 80, 80))
+        clown_glow = font_title.render("Clowns", True, (255, 80, 80))
+        screen.blit(clown_glow, (width//2 - clown_glow.get_width()//2 - 2, 135 - pulse//4))
+        screen.blit(clown_title, (width//2 - clown_title.get_width()//2, 135))
 
-        footer = font_small.render("Menu stays open", True, (120, 120, 120))
-        screen.blit(footer, (width // 2 - footer.get_width() // 2, height - 40))
+        # ===== Subtitle =====
+        subtitle = font_btn.render("Adversarial Search Game", True, (180, 180, 180))
+        screen.blit(subtitle, (width//2 - subtitle.get_width()//2, 210))
+
+        footer = font_small.render("Minimax • Alpha-Beta • AI Project", True, (120, 120, 120))
+        screen.blit(footer, (width//2 - footer.get_width()//2, height - 40))
 
         mouse_pos = pygame.mouse.get_pos()
         for i, btn in enumerate(buttons):

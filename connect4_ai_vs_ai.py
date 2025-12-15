@@ -263,7 +263,7 @@ while not game_over:
 
 			turn += 1
 			turn = turn % 2
-	# ===== إضافة حالة التعادل =====
+	#check for draw
 	elif len(get_valid_locations(board)) == 0:
 		label = myfont.render("Draw!", 1, (255,255,255))
 		screen.blit(label, (40,10))
