@@ -64,7 +64,7 @@ def game_mode_menu():
         screen.blit(clown_glow, (width//2 - clown_glow.get_width()//2 - 2, 135 - pulse//4))
         screen.blit(clown_title, (width//2 - clown_title.get_width()//2, 135))
 
-        # ===== Subtitle =====
+                # ===== Subtitle =====
         subtitle = font_btn.render("Adversarial Search Game", True, (180, 180, 180))
         screen.blit(subtitle, (width//2 - subtitle.get_width()//2, 210))
 
